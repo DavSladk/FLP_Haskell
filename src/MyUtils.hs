@@ -6,6 +6,7 @@ module MyUtils
 , getThirds
 , third
 , nubSort
+, getJustSeconds
 
 ) where
 
@@ -13,6 +14,7 @@ import System.IO ( openFile, hGetContents, IOMode(ReadMode) )
 import Types ( Automat(..) )
 import Data.List ( nub, sort )
 import Data.Char ( isLower )
+import Data.Maybe (fromJust)
 
 -- parses arguments into triplet
 parseArgs :: [String] -> (Bool, Bool, String)
@@ -122,6 +124,9 @@ transitionsListToString :: [(Int, Char, Int)] -> String
 transitionsListToString [] = []
 transitionsListToString ((a,b,c):xs) = show a ++ "," ++ [b] ++ "," ++ show c ++ "\n" ++ transitionsListToString xs
 ------------------ ! ---------------------
+
+getJustSeconds :: [(a, Maybe b)] -> [b]
+getJustSeconds = map (fromJust . snd)
 
 getThirds :: [(a, b1, b2)] -> [b2]
 getThirds = map third

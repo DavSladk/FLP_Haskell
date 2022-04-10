@@ -9,9 +9,9 @@ TYPES = $(SRC_DIR)/Types.hs
 UNREACHABLE = $(SRC_DIR)/Unreachable.hs
 SINK = $(SRC_DIR)/Sink.hs
 MINIMALIZE = $(SRC_DIR)/Minimalize.hs
+CANON = $(SRC_DIR)/Canon.hs
 
-
-FILES = $(MAIN) $(MY_UTILS) $(TYPES) $(UNREACHABLE) $(SINK) $(MINIMALIZE)
+FILES = $(MAIN) $(MY_UTILS) $(TYPES) $(UNREACHABLE) $(SINK) $(MINIMALIZE) $(CANON)
 
 all: $(FILES)
 	ghc $(OPT) -o flp21-fun $^

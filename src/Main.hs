@@ -15,6 +15,7 @@ import MyUtils ( parseArgs, openInput, printAutomat, parseAutomat )
 import Unreachable ( removeUnreachableStates )
 import Sink ( fullyDefine, removeSink )
 import Minimalize ( reduce ) 
+import Canon ( toCanon )
 
 main :: IO ()
 main = do
@@ -24,8 +25,6 @@ main = do
     fileAutomat <- openInput file
 
     let automat = parseAutomat ( lines fileAutomat )
-
-    --closeInput file
 
     if i
         then do
@@ -40,7 +39,8 @@ main = do
             let b = fullyDefine a
             let c = reduce b
             let d = removeSink c
-            printAutomat d
+            let e = toCanon d
+            printAutomat e
 
         else do
             return ()

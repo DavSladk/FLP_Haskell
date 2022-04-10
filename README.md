@@ -5,7 +5,8 @@ Dle opory TIN je pro minimalizaci třeba provést následující kroky:
 * odstranění všech SINK stavů - implementováno
 
 ## Bugy
-* program prnopláňově neprovádí žádné akce pro převedení automatu do kanonického stavu. Avšak v průběhu algoritmu je na několika místech volány funkce nub a sort, tak by aspoň některé části automaut měli být v kanonickém stavu. Každopádně pokud odstraňovaný sink state není poslední, tak to kanonický stav automatu rozbije (pokud v něm byl).
+* Převádění do kakonické formy je implementováno. Avšak na seřazování polí bylo použito prostě funkce sort, což nevím jaký přesný efekt má na seřazování trojic, kterýma reprezentuji přechodovou funkci.
+* Program nezavírá vstupní program, protože nevím.
 
 ## Testy
 * test0 - automat z opory TIN
