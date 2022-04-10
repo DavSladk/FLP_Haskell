@@ -8,8 +8,8 @@
 
 module Main ( main ) where
 
-import System.Exit ( exitSuccess )
 import System.Environment ( getArgs )
+import GHC.IO.Handle (hClose, hGetContents)
 
 import MyUtils ( parseArgs, openInput, printAutomat, parseAutomat )
 import Unreachable ( removeUnreachableStates )
@@ -22,14 +22,14 @@ main = do
     args <- getArgs
     let (i,t,file) = parseArgs args
 
-    fileAutomat <- openInput file
-
-    let automat = parseAutomat ( lines fileAutomat )
+    handle <- openInput file
+    content <- hGetContents handle
+    let automat = parseAutomat ( lines content )
+    
 
     if i
         then do
             print automat
-            exitSuccess
         else do
             return ()
 
@@ -44,3 +44,5 @@ main = do
 
         else do
             return ()
+
+    hClose handle

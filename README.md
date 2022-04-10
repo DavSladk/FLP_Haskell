@@ -6,7 +6,6 @@ Dle opory TIN je pro minimalizaci třeba provést následující kroky:
 
 ## Bugy
 * Převádění do kakonické formy je implementováno. Avšak na seřazování polí bylo použito prostě funkce sort, což nevím jaký přesný efekt má na seřazování trojic, kterýma reprezentuji přechodovou funkci.
-* Program nezavírá vstupní program, protože nevím.
 
 ## Testy
 * test0 - automat z opory TIN

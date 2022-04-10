@@ -10,7 +10,7 @@ module MyUtils
 
 ) where
 
-import System.IO ( openFile, hGetContents, IOMode(ReadMode) )
+import System.IO ( openFile, IOMode(ReadMode), stdin, Handle )
 import Types ( Automat(..) )
 import Data.List ( nub, sort )
 import Data.Char ( isLower )
@@ -39,14 +39,13 @@ findFileName (x:xs) =
     else x
 
 -- reads from stdin or from file
-openInput :: String -> IO String
+openInput :: [Char] -> IO Handle
 openInput file =
     if file == ""
         then
-            getContents
+            return stdin
     else do
-        handle <- openFile file ReadMode
-        hGetContents handle
+        openFile file ReadMode
 
 -- ! -- functions to parse automat -- ! --
 parseAutomat :: [String] -> Automat
