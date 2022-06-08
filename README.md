@@ -1,3 +1,5 @@
+Hodnocení: 6/12
+
 Dle opory TIN je pro minimalizaci třeba provést následující kroky:
 * odstranit nedosažitelné stavy - naimplementováno
 * převést automat do plně definovaného stavu - naimplementováno
